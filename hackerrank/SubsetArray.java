@@ -1,0 +1,51 @@
+package hackerrank;
+import java.io.*;  
+                                                                                           
+class SubsetArray 
+{ 
+	
+    static void combinationUtil(int arr[], int n, int r,  int index, int data[], int i)                         
+    { 
+       // System.out.println("Index value"+index+"  i"+i);
+        if (index == r) 
+        { 
+            for (int j = 0; j < r; j++) 
+                System.out.print(data[j] + " "); 
+            System.out.println("");
+            //System.out.println("In index: "+index);
+            return; 
+        } 
+  
+       
+        if (i >= n) 
+            return; 
+  
+       
+        data[index] = arr[i]; 
+        System.out.println("Index value "+index+"  i"+i);
+        combinationUtil(arr, n, r, index + 1,  data, i + 1); 
+        System.out.println("**********************************************");
+        
+        System.out.println("==============================================");
+        combinationUtil(arr, n, r, index, data, i + 1); 
+    } 
+  
+    static void printCombination(int arr[], int n, int r) 
+    { 
+        
+        int data[] = new int[r]; 
+  
+
+        combinationUtil(arr, n, r, 0, data, 0); 
+    } 
+  
+   
+    public static void main(String[] args) 
+    { 
+        int arr[] = { 10, 20, 30, 40, 50 }; 
+        int r = 3; 
+        int n = arr.length; 
+        printCombination(arr, n, r); 
+    } 
+} 
+

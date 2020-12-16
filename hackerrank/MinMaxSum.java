@@ -1,0 +1,43 @@
+package hackerrank;
+
+import java.util.Scanner;
+
+public class MinMaxSum {
+
+	public static void main(String[] args) 
+	{
+		int i=0,j=0,t,n,min=0,max=0;
+		int[] a;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the value of n: ");
+		n=sc.nextInt();
+		a=new int[n];
+		System.out.println("Enter the Array elements: ");
+		for(i=0;i<n;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<n-1;j++)
+			{
+				if(a[j]>a[j+1])
+				{
+					t=a[j];
+					a[j]=a[j+1];
+					a[j+1]=t;
+					
+				}
+			}
+		}
+		min=a[0]+a[1];
+		max=a[n-1]+a[n-2];
+		System.out.println("Minimum Sum: "+min);
+		System.out.println("Maximum Sum: "+max);
+		
+		sc.close();
+
+	}
+
+}
